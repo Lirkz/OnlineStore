@@ -20,8 +20,46 @@
       publisher of books
 
     Where these variables are stored and how to name them is up to you!
+    David Saiontz, a store class that contains a profit, items for sale, and methods for showing, adding, and selling items, as well as getting their creator and overall profits.
 */
+import java.util.ArrayList;
+
 public class Store
 {
+  private ArrayList<ItemForSale> items = new ArrayList<ItemForSale>();
+  private Double profit;
+
+  public Store(){
+    profit = 0.0;
+  }
+  public Double getProfit(){
+    return profit;
+  }
+  public void showItems(){
+    for (ItemForSale item : items){
+      System.out.print(item.getName() + " ");
+    }
+    System.out.println();
+  }
+  public void addItem(ItemForSale item){
+    items.add(item);
+  }
+  public void sellItem(String itemName){
+    for (ItemForSale item : items){
+      if (item.getName() == itemName){
+        profit += item.getPrice();
+        items.remove(item);
+        return;
+      }
+    }
+  }
+  public String creator(String itemName){
+    for (ItemForSale item : items){
+      if (item.getName() == itemName){
+        return item.getAuthor().getName();
+      }
+    }
+    return "Item does not exist";
+  } 
 
 }
