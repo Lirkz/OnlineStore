@@ -41,9 +41,13 @@ public class Store
     }
     System.out.println();
   }
+  //Precondition Store is initialized 
+  //Postcondition adds an item to the ItemForSale list
   public void addItem(ItemForSale item){
     items.add(item);
   }
+  //Precondition Store is initialized
+  //Postcondition Removes an item from the ItemForSale list if it exists otherwise does nothing
   public void sellItem(String itemName){
     for (ItemForSale item : items){
       if (item.getName() == itemName){
@@ -53,6 +57,8 @@ public class Store
       }
     }
   }
+  //Precondition Store is initialized
+  //Postcondition Gets the creator of a given item if that item exists
   public String creator(String itemName){
     for (ItemForSale item : items){
       if (item.getName() == itemName){
